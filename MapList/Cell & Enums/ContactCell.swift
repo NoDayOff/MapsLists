@@ -13,4 +13,6 @@ class ContactsCell: UITableViewCell
     @IBOutlet weak var contactName: UILabel!
     @IBOutlet weak var contactImage: CustomImageView!
     @IBOutlet weak var favBtn: CustomButton!
+    @IBOutlet weak var infoButton: UIButton!
+    
 }

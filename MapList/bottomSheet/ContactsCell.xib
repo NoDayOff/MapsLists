@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -77,7 +78,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4f-EG-Ok4" customClass="CustomButton" customModule="MapList" customModuleProvider="target">
-                        <rect key="frame" x="354" y="13" width="47" height="48"/>
+                        <rect key="frame" x="347" y="13" width="47" height="48"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="47" id="5ET-AF-dRS"/>
@@ -85,11 +86,22 @@
                         </constraints>
                         <state key="normal" image="starUnfilled"/>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBm-kF-3vS">
+                        <rect key="frame" x="398" y="17" width="0.0" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" id="B1u-0b-GIx"/>
+                            <constraint firstAttribute="height" constant="40" id="feZ-Si-RLZ"/>
+                        </constraints>
+                        <color key="tintColor" systemColor="linkColor"/>
+                        <state key="normal" image="info.circle" catalog="system"/>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="LBm-kF-3vS" firstAttribute="centerY" secondItem="c4f-EG-Ok4" secondAttribute="centerY" id="0DU-Gf-ZR0"/>
                     <constraint firstItem="9f1-7X-SK0" firstAttribute="centerY" secondItem="Ord-87-cRk" secondAttribute="centerY" id="37b-sw-WTN"/>
-                    <constraint firstAttribute="trailing" secondItem="c4f-EG-Ok4" secondAttribute="trailing" constant="13" id="3om-LG-7b9"/>
                     <constraint firstItem="c4f-EG-Ok4" firstAttribute="centerY" secondItem="Ord-87-cRk" secondAttribute="centerY" id="4hF-MA-g3d"/>
+                    <constraint firstItem="LBm-kF-3vS" firstAttribute="leading" secondItem="c4f-EG-Ok4" secondAttribute="trailing" constant="4" id="Bvd-Iy-1ca"/>
+                    <constraint firstAttribute="trailing" secondItem="LBm-kF-3vS" secondAttribute="trailing" constant="16" id="EaP-x2-Vw2"/>
                     <constraint firstItem="gEJ-ba-5zh" firstAttribute="centerY" secondItem="Ord-87-cRk" secondAttribute="centerY" id="j9U-ff-6LE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gEJ-ba-5zh" secondAttribute="trailing" constant="15" id="krO-BB-rLz"/>
                     <constraint firstItem="9f1-7X-SK0" firstAttribute="leading" secondItem="Ord-87-cRk" secondAttribute="leadingMargin" id="t2Q-Kp-TUZ"/>
@@ -100,8 +112,9 @@
                 <outlet property="contactImage" destination="jN4-Yf-sED" id="aYR-vf-w7R"/>
                 <outlet property="contactName" destination="gEJ-ba-5zh" id="9md-JZ-evG"/>
                 <outlet property="favBtn" destination="c4f-EG-Ok4" id="OaP-cS-uOz"/>
+                <outlet property="infoButton" destination="LBm-kF-3vS" id="18B-i1-gzY"/>
             </connections>
-            <point key="canvasLocation" x="36" y="167"/>
+            <point key="canvasLocation" x="34.782608695652179" y="166.74107142857142"/>
         </tableViewCell>
     </objects>
     <designables>
@@ -114,6 +127,10 @@
     </designables>
     <resources>
         <image name="contact" width="508" height="325.33334350585938"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="starUnfilled" width="32" height="32"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

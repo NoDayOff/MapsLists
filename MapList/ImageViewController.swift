@@ -6,24 +6,33 @@
 //
 
 import UIKit
-
+import MapKit
 class ImageViewController: UIViewController {
 
+    var data : DataModel?
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var lablName: UILabel!
+    @IBOutlet weak var sharebUTTON: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        image.layer.cornerRadius = 6
+        image.layer.borderWidth = 1
+        image.layer.borderColor = UIColor.gray.cgColor
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func crossButton(_ sender: Any) {
+        view.removeFromSuperview()
+        
+        
     }
-    */
-
+    
+    @IBAction func sharePressed(_ sender: Any) {
+        let coordinate = data?.location
+        let image = UIImage(named: "foodd")
+        let ss = "http://maps.apple.com/?ll=\(coordinate?.latitude ?? 0.0),\(coordinate?.longitude ?? 0.0)"
+        let vCardURL = ViewController.vCardURL(from: coordinate!, with: "Test")
+        let activityViewController = UIActivityViewController(activityItems: [image!,ss], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
 }
