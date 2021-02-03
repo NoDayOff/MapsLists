@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ContactsCell" rowHeight="74" id="l7W-Nx-1pi" customClass="ContactsCell" customModule="MapList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l7W-Nx-1pi" id="Ord-87-cRk">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9f1-7X-SK0" customClass="CustomUIView" customModule="MapList" customModuleProvider="target">
+                        <rect key="frame" x="20" y="17" width="40" height="40"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contact" translatesAutoresizingMaskIntoConstraints="NO" id="jN4-Yf-sED" customClass="CustomImageView" customModule="MapList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="K6c-Jp-w5I"/>
+                                    <constraint firstAttribute="width" constant="40" id="KZX-1a-DFn"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rounded">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jN4-Yf-sED" firstAttribute="top" secondItem="9f1-7X-SK0" secondAttribute="top" id="6pZ-g6-otg"/>
+                            <constraint firstAttribute="width" constant="40" id="cQ0-rJ-RFj"/>
+                            <constraint firstItem="jN4-Yf-sED" firstAttribute="leading" secondItem="9f1-7X-SK0" secondAttribute="leading" id="e0J-Ky-lUB"/>
+                            <constraint firstAttribute="height" constant="40" id="i8d-cp-svI"/>
+                            <constraint firstAttribute="trailing" secondItem="jN4-Yf-sED" secondAttribute="trailing" id="ot6-Ye-34z"/>
+                            <constraint firstAttribute="bottom" secondItem="jN4-Yf-sED" secondAttribute="bottom" id="rrX-7H-fjL"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rounded">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEJ-ba-5zh">
+                        <rect key="frame" x="75" y="22" width="304" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="8M6-JL-0SJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4f-EG-Ok4" customClass="CustomButton" customModule="MapList" customModuleProvider="target">
+                        <rect key="frame" x="354" y="13" width="47" height="48"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="47" id="5ET-AF-dRS"/>
+                            <constraint firstAttribute="height" constant="48" id="KRy-71-FDv"/>
+                        </constraints>
+                        <state key="normal" image="starUnfilled"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9f1-7X-SK0" firstAttribute="centerY" secondItem="Ord-87-cRk" secondAttribute="centerY" id="37b-sw-WTN"/>
+                    <constraint firstAttribute="trailing" secondItem="c4f-EG-Ok4" secondAttribute="trailing" constant="13" id="3om-LG-7b9"/>
+                    <constraint firstItem="c4f-EG-Ok4" firstAttribute="centerY" secondItem="Ord-87-cRk" secondAttribute="centerY" id="4hF-MA-g3d"/>
+                    <constraint firstItem="gEJ-ba-5zh" firstAttribute="centerY" secondItem="Ord-87-cRk" secondAttribute="centerY" id="j9U-ff-6LE"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="gEJ-ba-5zh" secondAttribute="trailing" constant="15" id="krO-BB-rLz"/>
+                    <constraint firstItem="9f1-7X-SK0" firstAttribute="leading" secondItem="Ord-87-cRk" secondAttribute="leadingMargin" id="t2Q-Kp-TUZ"/>
+                    <constraint firstItem="gEJ-ba-5zh" firstAttribute="leading" secondItem="9f1-7X-SK0" secondAttribute="trailing" constant="15" id="tbv-eN-y8Y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contactImage" destination="jN4-Yf-sED" id="aYR-vf-w7R"/>
+                <outlet property="contactName" destination="gEJ-ba-5zh" id="9md-JZ-evG"/>
+                <outlet property="favBtn" destination="c4f-EG-Ok4" id="OaP-cS-uOz"/>
+            </connections>
+            <point key="canvasLocation" x="36" y="167"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="c4f-EG-Ok4">
+            <size key="intrinsicContentSize" width="32" height="32"/>
+        </designable>
+        <designable name="jN4-Yf-sED">
+            <size key="intrinsicContentSize" width="508" height="325.33333333333331"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="contact" width="508" height="325.33334350585938"/>
+        <image name="starUnfilled" width="32" height="32"/>
+    </resources>
+</document>
