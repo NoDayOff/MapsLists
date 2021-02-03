@@ -1,18 +1,6 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## GoogleMaps
-
-Copyright 2019 Google
-
-## GooglePlacePicker
-
-Copyright 2019 Google
-
-## GooglePlaces
-
-Copyright 2019 Google
-
 ## SwiftMessages
 
 Copyright (c) 2016 SwiftKick Mobile LLC

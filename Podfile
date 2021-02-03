@@ -7,9 +7,9 @@ target 'MapList' do
 
   # Pods for MapList
 
-pod 'GooglePlaces'
-pod 'GooglePlacePicker'
-pod 'GoogleMaps'
+#pod 'GooglePlaces'
+#pod 'GooglePlacePicker'
+#pod 'GoogleMaps'
 pod 'SwiftMessages'
 
 end
