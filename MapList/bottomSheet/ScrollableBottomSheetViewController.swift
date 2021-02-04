@@ -117,7 +117,25 @@ func checkFavoriteCount(table:UITableView)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mapData"), object: nil, userInfo: imageDataDict)
         
     }
-    
+    @objc func favBtn(_ sender: CustomButton)
+    {
+        let index = sender.index
+        let cell = tableView.cellForRow(at: index!) as! ContactsCell
+        let dicData = sender.value
+        
+        if (dicData?.isFav ?? false)
+        {
+            cell.favBtn.setImage(UIImage(named: "starUnfilled"), for: .normal)
+            dicData?.isFav = false
+            self.checkFavoriteCount(table: self.tableView)
+        }
+        else
+        {
+            cell.favBtn.setImage(UIImage(named: "starIcon"), for: .normal)
+            dicData?.isFav = true
+            self.checkFavoriteCount(table: self.tableView)
+        }
+    }
 }
 
 extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewDataSource
@@ -125,7 +143,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     public func numberOfSections(in tableView: UITableView) -> Int {
         var count = Int()
         
-        if searchController.isActive && searchController.searchBar.text != "" {
+        if searchBar.text != "" {
             count = 1
         }
         
@@ -181,27 +199,21 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         var dicData : DataModel?
         cell.infoButton.tag = indexPath.row
         cell.infoButton.addTarget(self, action: #selector(infoPressed(_:)), for: .touchUpInside)
-        if searchController.isActive && searchController.searchBar.text != "" {
+        if searchBar.text != "" {
             cell.contactName.text = filteredArray[indexPath.row].title
         }
-        
-        
         else if (favArray.count != 0)
         {
             if (indexPath.section == 0)
             {
-                if indexPath.row < favArray.count
-                {
                     cell.contactName.text = favArray[indexPath.row].title
                     cell.favBtn.setImage(UIImage(named: "starIcon"), for: .normal)
                     cell.favBtn.isEnabled = false
-                }
                 
             }
             else
             {
-                if indexPath.row < favArray.count
-                {
+                
                 cell.favBtn.isEnabled = true
                 names = namesDictionary[indexPath.section - 1].key
                 
@@ -221,7 +233,6 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
                 cell.favBtn.index = indexPath
                 cell.favBtn.addTarget(self, action: #selector(favBtn(_:)), for: .touchUpInside)
             }
-          }
         }
         
         else
@@ -250,25 +261,6 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         return cell
     }
     
-    @objc func favBtn(_ sender: CustomButton)
-    {
-        let index = sender.index
-        let cell = tableView.cellForRow(at: index!) as! ContactsCell
-        let dicData = sender.value
-        
-        if (dicData?.isFav ?? false)
-        {
-            cell.favBtn.setImage(UIImage(named: "starUnfilled"), for: .normal)
-            dicData?.isFav = false
-            self.checkFavoriteCount(table: self.tableView)
-        }
-        else
-        {
-            cell.favBtn.setImage(UIImage(named: "starIcon"), for: .normal)
-            dicData?.isFav = true
-            self.checkFavoriteCount(table: self.tableView)
-        }
-    }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
@@ -292,10 +284,10 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionButton = UIButton()
             
-//        if  searchBar.text != "" {
-//            sectionButton.setTitle(String(Array(namesDictionary)[section].key),for: .normal)
-//        }
-         if (favArray.count != 0){
+        if  searchBar.text != "" {
+            sectionButton.setTitle(String("Top Name Matches"),for: .normal)
+        }
+         else if (favArray.count != 0){
             if (section == 0)
             {
                 sectionButton.setTitle(String("Favorites"),for: .normal)
