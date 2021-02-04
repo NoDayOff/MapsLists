@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScrollableBottomSheetViewController" customModule="BottomSheet" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScrollableBottomSheetViewController" customModule="MapList" customModuleProvider="target">
             <connections>
                 <outlet property="headerView" destination="Jqb-lC-sL5" id="2Bt-iO-hyv"/>
                 <outlet property="searchBar" destination="lCb-mm-wKD" id="kw1-PU-tqZ"/>
@@ -16,14 +16,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Erf-d4-QVB">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jqb-lC-sL5">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <subviews>
                                 <searchBar contentMode="redraw" placeholder="search" translatesAutoresizingMaskIntoConstraints="NO" id="lCb-mm-wKD">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <scopeButtonTitles>
                                         <string>Title</string>
@@ -41,6 +44,7 @@
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GSW-2o-otm">
+                            <rect key="frame" x="0.0" y="50" width="414" height="846"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
                     </subviews>
@@ -53,6 +57,7 @@
                 <constraint firstAttribute="bottom" secondItem="Erf-d4-QVB" secondAttribute="bottom" id="Yc9-9T-ctS"/>
                 <constraint firstAttribute="trailing" secondItem="Erf-d4-QVB" secondAttribute="trailing" id="ibQ-ba-cnb"/>
             </constraints>
+            <point key="canvasLocation" x="-196" y="73"/>
         </view>
     </objects>
 </document>

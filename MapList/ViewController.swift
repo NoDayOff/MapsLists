@@ -14,6 +14,7 @@ struct Places
     var Title : String
     var subTitle: String
     var Location: CLLocationCoordinate2D
+    var image : UIImage
 }
 
 class ViewController: UIViewController, UISearchBarDelegate
@@ -26,11 +27,15 @@ class ViewController: UIViewController, UISearchBarDelegate
     let locationManager = CLLocationManager()
 //    var mapView: GMSMapView?
     
-    var placesArray : [DataModel] = []
-    var resultsArray: [DataModel] = []
+    var placesArray : [Places] = []
+    var resultsArray: [Places] = []
     
     var swiftyView = MessageView()
     
+    let loc1 : Places = Places.init(Title: "Johar Town", subTitle: "Lahore", Location: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728), image: UIImage(named: "foodd")!)
+    let loc2 : Places = Places.init(Title: "Wapda Town", subTitle: "Lahore", Location: CLLocationCoordinate2D.init(latitude: 32.4697, longitude: 74.2728), image: UIImage(named: "foodd")!)
+    let loc3 : Places = Places.init(Title: "DHA Phase 6", subTitle: "Lahore", Location: CLLocationCoordinate2D.init(latitude: 33.4697, longitude: 74.2728), image: UIImage(named: "foodd")!)
+    let loc4 : Places = Places.init(Title: "Paragon City", subTitle: "Lahore", Location: CLLocationCoordinate2D.init(latitude: 34.4697, longitude: 74.2728), image: UIImage(named: "foodd")!)
     
     
     override func viewDidLoad() {
@@ -39,18 +44,16 @@ class ViewController: UIViewController, UISearchBarDelegate
         customeMapView.delegate = self
         searchResultController = SearchViewController()
         searchResultController.delegate = self
-                
-        placesArray.append(DataModel(title: "Test", discipline: "Tattoo Artistry", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728)))
-        placesArray.append(DataModel(title: "Test1", discipline: "Candle Shop", url: "https://www.google.com", fav: true, locations: CLLocationCoordinate2D.init(latitude: 32.4697, longitude: 74.2728)))
-        placesArray.append(DataModel(title: "Test2", discipline: "Candle Shop", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 33.4697, longitude: 74.2728)))
-        placesArray.append(DataModel(title: "Check", discipline: "Pumpkin Patch Farm", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 34.4697, longitude: 74.2728)))
-        placesArray.append(DataModel(title: "John", discipline: "Wine & Spirits", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 35.4697, longitude: 74.2728)))
-        placesArray.append(DataModel(title: "Allen", discipline: "Tattoo Artistry", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 37.4697, longitude: 74.2728)))
-        NotificationCenter.default.addObserver(self, selector: #selector(updateLocation), name: NSNotification.Name(rawValue: "mapData"), object: nil)
+        
+        placesArray.append(loc1)
+        placesArray.append(loc2)
+        placesArray.append(loc3)
+        placesArray.append(loc4)
+        
         for index in 0...placesArray.count-1 {
             let annotation = MKPointAnnotation()  // <-- new instance here
-            annotation.coordinate = placesArray[index].location
-            annotation.title = placesArray[index].title
+            annotation.coordinate = placesArray[index].Location
+            annotation.title = placesArray[index].Title
             customeMapView.addAnnotation(annotation)
         }
     }
@@ -85,14 +88,14 @@ class ViewController: UIViewController, UISearchBarDelegate
         if let data = notification.userInfo?["data"] as? DataModel {
           // do something with your image
             
-            openAddCreditView(modal: data)
+            //openAddCreditView(modal: data)
             
-            locateWithLongitude(data.location.longitude, andLatitude: data.location.latitude, andTitle: data.title)
+            locateWithLongitude(loc1.Location.longitude, andLatitude: loc1.Location.latitude, andTitle: loc1.Title)
           }
         
     }
     
-    func openAddCreditView(modal:DataModel){
+    func openAddCreditView(modal:Places){
         // self.backView.isHidden = false
         addCredit.data = modal
         self.addChild(addCredit)
@@ -152,7 +155,7 @@ extension ViewController: LocateOnTheMap,MKMapViewDelegate
     
     @objc func accesTap(cord: CLLocationCoordinate2D){
         
-        self.openAddCreditView(modal: DataModel(title: "", discipline: "", url: "", fav: false, locations: selectedLoc!))
+        self.openAddCreditView(modal: placesArray[0])
     }
 }
 

@@ -32,12 +32,12 @@ class ContactsViewController: UIViewController {
         {
             super.viewDidLoad()
             
-            data.append(DataModel(title: "Test", discipline: "Tattoo Artistry", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728)))
-            data.append(DataModel(title: "Test1", discipline: "Candle Shop", url: "https://www.google.com", fav: true, locations: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728)))
-            data.append(DataModel(title: "Test2", discipline: "Candle Shop", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728)))
-            data.append(DataModel(title: "Check", discipline: "Pumpkin Patch Farm", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728)))
-            data.append(DataModel(title: "John", discipline: "Wine & Spirits", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728)))
-            data.append(DataModel(title: "Allen", discipline: "Tattoo Artistry", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728)))
+            data.append(DataModel(title: "Test", discipline: "Tattoo Artistry", url: "https://www.google.com", fav: false))
+            data.append(DataModel(title: "Test1", discipline: "Candle Shop", url: "https://www.google.com", fav: true))
+            data.append(DataModel(title: "Test2", discipline: "Candle Shop", url: "https://www.google.com", fav: false))
+            data.append(DataModel(title: "Check", discipline: "Pumpkin Patch Farm", url: "https://www.google.com", fav: false))
+            data.append(DataModel(title: "John", discipline: "Wine & Spirits", url: "https://www.google.com", fav: false))
+            data.append(DataModel(title: "Allen", discipline: "Tattoo Artistry", url: "https://www.google.com", fav: false))
             
             setUpNavBar()
            // createNameDictionary(table: <#UITableView#>) // Creating Dictionary for Alphabets which create shows in table view header like
@@ -64,7 +64,7 @@ class ContactsViewController: UIViewController {
                     if (keyName == name) { return true }
                     return false })
                 {
-                    namesDictionary[name]?.append(DataModel.init(title: x.title, discipline: x.discipline, url: x.url, fav: x.isFav, locations: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728)))
+                    namesDictionary[name]?.append(DataModel.init(title: x.title, discipline: x.discipline, url: x.url, fav: x.isFav))
                 }
                 else
                 {

@@ -38,17 +38,18 @@ class ScrollableBottomSheetViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ContactsCell", bundle: nil), forCellReuseIdentifier: "ContactsCell")
         
+        searchBar.delegate = self
         searchBar.isUserInteractionEnabled = true
-        
+        definesPresentationContext = true
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(ScrollableBottomSheetViewController.panGesture))
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
-        data.append(DataModel(title: "Test", discipline: "Tattoo Artistry", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728)))
-        data.append(DataModel(title: "Test1", discipline: "Candle Shop", url: "https://www.google.com", fav: true, locations: CLLocationCoordinate2D.init(latitude: 32.4697, longitude: 74.2728)))
-        data.append(DataModel(title: "Test2", discipline: "Candle Shop", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 33.4697, longitude: 74.2728)))
-        data.append(DataModel(title: "Check", discipline: "Pumpkin Patch Farm", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 34.4697, longitude: 74.2728)))
-        data.append(DataModel(title: "John", discipline: "Wine & Spirits", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 35.4697, longitude: 74.2728)))
-        data.append(DataModel(title: "Allen", discipline: "Tattoo Artistry", url: "https://www.google.com", fav: false, locations: CLLocationCoordinate2D.init(latitude: 37.4697, longitude: 74.2728)))
+        data.append(DataModel(title: "Test", discipline: "Tattoo Artistry", url: "https://www.google.com", fav: false))
+        data.append(DataModel(title: "Test1", discipline: "Candle Shop", url: "https://www.google.com", fav: true))
+        data.append(DataModel(title: "Test2", discipline: "Candle Shop", url: "https://www.google.com", fav: false))
+        data.append(DataModel(title: "Check", discipline: "Pumpkin Patch Farm", url: "https://www.google.com", fav: false))
+        data.append(DataModel(title: "John", discipline: "Wine & Spirits", url: "https://www.google.com", fav: false))
+        data.append(DataModel(title: "Allen", discipline: "Tattoo Artistry", url: "https://www.google.com", fav: false))
         
         self.createNameDictionary(table: tableView)
     }
@@ -82,7 +83,7 @@ class ScrollableBottomSheetViewController: UIViewController {
                 if (keyName == name) { return true }
                 return false })
             {
-                namesDictionary[name]?.append(DataModel.init(title: x.title, discipline: x.discipline, url: x.url, fav: x.isFav, locations: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728)))
+                namesDictionary[name]?.append(DataModel.init(title: x.title, discipline: x.discipline, url: x.url, fav: x.isFav ))
             }
             else
             {
@@ -148,7 +149,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         }
         else
         {
-            if searchController.isActive && searchController.searchBar.text != "" {
+            if searchBar.text != "" {
                 count = filteredArray.count
             }
             
@@ -189,14 +190,21 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         {
             if (indexPath.section == 0)
             {
-                cell.contactName.text = favArray[indexPath.row].title
-                cell.favBtn.setImage(UIImage(named: "starIcon"), for: .normal)
-                cell.favBtn.isEnabled = false
+                if indexPath.row < favArray.count
+                {
+                    cell.contactName.text = favArray[indexPath.row].title
+                    cell.favBtn.setImage(UIImage(named: "starIcon"), for: .normal)
+                    cell.favBtn.isEnabled = false
+                }
+                
             }
             else
             {
+                if indexPath.row < favArray.count
+                {
                 cell.favBtn.isEnabled = true
                 names = namesDictionary[indexPath.section - 1].key
+                
                 dicData = namesDictionary[names]?[(indexPath.row)]
                 cell.contactName.text = dicData?.title
                 
@@ -213,6 +221,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
                 cell.favBtn.index = indexPath
                 cell.favBtn.addTarget(self, action: #selector(favBtn(_:)), for: .touchUpInside)
             }
+          }
         }
         
         else
@@ -272,7 +281,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         
-        if searchController.isActive && searchController.searchBar.text != "" {
+        if searchBar.text != "" {
             return false
         }
         
@@ -282,7 +291,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionButton = UIButton()
             
-        if searchController.isActive && searchController.searchBar.text != "" {
+        if  searchBar.text != "" {
             sectionButton.setTitle(String("Top Name Matches"),for: .normal)
         }
         else if (favArray.count != 0){
@@ -386,6 +395,7 @@ extension ScrollableBottomSheetViewController: UIGestureRecognizerDelegate {
 extension ScrollableBottomSheetViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
+        
         filterContacts(text: searchController.searchBar.text!)
     }
     
@@ -396,5 +406,14 @@ extension ScrollableBottomSheetViewController: UISearchResultsUpdating {
         })
         
         tableView.reloadData()
+    }
+}
+
+
+extension ScrollableBottomSheetViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
+        print(textSearched)
+        filterContacts(text: textSearched)
     }
 }

@@ -14,13 +14,11 @@ class DataModel
     var discipline : String
     var url: String
     var isFav : Bool
-    var location : CLLocationCoordinate2D
     
-    init(title: String, discipline: String, url: String, fav: Bool,locations : CLLocationCoordinate2D) {
+    init(title: String, discipline: String, url: String, fav: Bool) {
         self.title = title
         self.discipline = discipline
         self.url = url
         self.isFav = fav
-        self.location = locations
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 class ImageViewController: UIViewController {
 
-    var data : DataModel?
+    var data : Places?
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var lablName: UILabel!
     @IBOutlet weak var sharebUTTON: UIButton!
@@ -27,8 +27,8 @@ class ImageViewController: UIViewController {
     }
     
     @IBAction func sharePressed(_ sender: Any) {
-        let coordinate = data?.location
-        let image = UIImage(named: "foodd")
+        let coordinate = data?.Location
+        let image = data?.image
         let ss = "http://maps.apple.com/?ll=\(coordinate?.latitude ?? 0.0),\(coordinate?.longitude ?? 0.0)"
         let vCardURL = ViewController.vCardURL(from: coordinate!, with: "Test")
         let activityViewController = UIActivityViewController(activityItems: [image!,ss], applicationActivities: nil)
