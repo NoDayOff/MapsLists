@@ -8,13 +8,7 @@
 import UIKit
 import MapKit
 
-struct Places
-{
-    var Title : String
-    var subTitle: String
-    var Location: CLLocationCoordinate2D
-    var image : UIImage
-}
+
 
 class ViewController: UIViewController, UISearchBarDelegate
 {

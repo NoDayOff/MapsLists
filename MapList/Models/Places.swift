@@ -22,3 +22,11 @@ class DataModel
         self.isFav = fav
     }
 }
+
+struct Places
+{
+    var Title : String
+    var subTitle: String
+    var Location: CLLocationCoordinate2D
+    var image : UIImage
+}
