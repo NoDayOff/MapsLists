@@ -10,6 +10,6 @@ target 'MapList' do
 #pod 'GooglePlaces'
 #pod 'GooglePlacePicker'
 #pod 'GoogleMaps'
-pod 'SwiftMessages'
+#pod 'SwiftMessages'
 
 end
