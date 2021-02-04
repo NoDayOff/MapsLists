@@ -22,8 +22,6 @@ class ImageViewController: UIViewController {
     }
     @IBAction func crossButton(_ sender: Any) {
         view.removeFromSuperview()
-        
-        
     }
     
     @IBAction func sharePressed(_ sender: Any) {

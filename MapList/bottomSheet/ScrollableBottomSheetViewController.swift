@@ -228,6 +228,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         {
             cell.favBtn.isEnabled = true
             names = namesDictionary[indexPath.section].key
+            if indexPath.row < namesDictionary[names]!.count {
             dicData = namesDictionary[names]?[indexPath.row]
             cell.contactName.text = dicData?.title
             
@@ -243,7 +244,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
             cell.favBtn.value = dicData
             cell.favBtn.index = indexPath
             cell.favBtn.addTarget(self, action: #selector(favBtn(_:)), for: .touchUpInside)
-            
+        }
         }
         
         return cell
@@ -291,10 +292,10 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionButton = UIButton()
             
-        if  searchBar.text != "" {
-            sectionButton.setTitle(String("Top Name Matches"),for: .normal)
-        }
-        else if (favArray.count != 0){
+//        if  searchBar.text != "" {
+//            sectionButton.setTitle(String(Array(namesDictionary)[section].key),for: .normal)
+//        }
+         if (favArray.count != 0){
             if (section == 0)
             {
                 sectionButton.setTitle(String("Favorites"),for: .normal)
