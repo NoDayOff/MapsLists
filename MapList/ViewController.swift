@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftMessages
 import MapKit
 
 struct Places
@@ -30,7 +29,6 @@ class ViewController: UIViewController, UISearchBarDelegate
     var placesArray : [Places] = []
     var resultsArray: [Places] = []
     
-    var swiftyView = MessageView()
     
     let loc1 : Places = Places.init(Title: "Johar Town", subTitle: "Lahore", Location: CLLocationCoordinate2D.init(latitude: 31.4697, longitude: 74.2728), image: UIImage(named: "foodd")!)
     let loc2 : Places = Places.init(Title: "Wapda Town", subTitle: "Lahore", Location: CLLocationCoordinate2D.init(latitude: 32.4697, longitude: 74.2728), image: UIImage(named: "foodd")!)
