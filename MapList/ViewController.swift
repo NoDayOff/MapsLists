@@ -65,12 +65,12 @@ class ViewController: UIViewController, UISearchBarDelegate
         bottomSheetVC.view.frame = CGRect(x: 0, y: height/2, width: width, height: height)
     }
     
-    @IBAction func searchLocationBtn(_ sender: Any)
-    {
-        let searchController = UISearchController(searchResultsController: searchResultController)
-        searchController.searchBar.delegate = self
-        self.present(searchController, animated: true, completion: nil)
-    }
+//    @IBAction func searchLocationBtn(_ sender: Any)
+//    {
+//        let searchController = UISearchController(searchResultsController: searchResultController)
+//        searchController.searchBar.delegate = self
+//        self.present(searchController, animated: true, completion: nil)
+//    }
     
     
     @objc func updateLocation(notification:NSNotification){
