@@ -16,7 +16,6 @@ class ViewController: UIViewController, UISearchBarDelegate
     @IBOutlet weak var customeMapView: MKMapView!
     @IBOutlet weak var searchBtnUI: UIButton!
     let addCredit: ImageViewController = ImageViewController(nibName: "ImageViewController", bundle: nil)
-    var searchResultController: SearchViewController!
     let locationManager = CLLocationManager()
 //    var mapView: GMSMapView?
     
@@ -34,8 +33,7 @@ class ViewController: UIViewController, UISearchBarDelegate
         super.viewDidLoad()
         
         customeMapView.delegate = self
-        searchResultController = SearchViewController()
-        searchResultController.delegate = self
+        
         
         placesArray.append(loc1)
         placesArray.append(loc2)
@@ -97,7 +95,7 @@ class ViewController: UIViewController, UISearchBarDelegate
     }
 }
 
-extension ViewController: LocateOnTheMap,MKMapViewDelegate
+extension ViewController:MKMapViewDelegate
 {
     func locateWithLongitude(_ lon: Double, andLatitude lat: Double, andTitle title: String)
     {

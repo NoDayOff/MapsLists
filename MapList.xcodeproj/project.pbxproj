@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,8 +14,6 @@
 		FA36703C25C317D20073314D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA36703A25C317D20073314D /* Main.storyboard */; };
 		FA36703E25C317D40073314D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA36703D25C317D40073314D /* Assets.xcassets */; };
 		FA36704125C317D40073314D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA36703F25C317D40073314D /* LaunchScreen.storyboard */; };
-		FA36705A25C31E4F0073314D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36705925C31E4F0073314D /* SearchViewController.swift */; };
-		FA36705D25C31F830073314D /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36705C25C31F830073314D /* ContactsViewController.swift */; };
 		FA36706225C320170073314D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36706025C320170073314D /* CustomButton.swift */; };
 		FA36706325C320170073314D /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36706125C320170073314D /* CustomImage.swift */; };
 		FA36706725C320220073314D /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36706625C320220073314D /* ContactCell.swift */; };
@@ -39,8 +37,6 @@
 		FA36703D25C317D40073314D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA36704025C317D40073314D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA36704225C317D40073314D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA36705925C31E4F0073314D /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		FA36705C25C31F830073314D /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		FA36706025C320170073314D /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FA36706125C320170073314D /* CustomImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
 		FA36706625C320220073314D /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
@@ -108,10 +104,7 @@
 				FA36706525C320220073314D /* Cell & Enums */,
 				FA36705F25C320170073314D /* Extensions */,
 				FA36703825C317D20073314D /* ViewController.swift */,
-				FA36705925C31E4F0073314D /* SearchViewController.swift */,
-				FA36705C25C31F830073314D /* ContactsViewController.swift */,
-				FA6E6A1525C7CBA4009409F8 /* ImageViewController.swift */,
-				FA6E6A1625C7CBA4009409F8 /* ImageViewController.xib */,
+				FAFC2BEB25CFC89700642FD6 /* ImagePopUp */,
 				FA3E2AC925C32DCF00B43564 /* bottomSheet */,
 				FA36703A25C317D20073314D /* Main.storyboard */,
 				FA36703D25C317D40073314D /* Assets.xcassets */,
@@ -154,6 +147,15 @@
 				FAD9E70425C5D2C9003A6538 /* Places.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FAFC2BEB25CFC89700642FD6 /* ImagePopUp */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E6A1525C7CBA4009409F8 /* ImageViewController.swift */,
+				FA6E6A1625C7CBA4009409F8 /* ImageViewController.xib */,
+			);
+			path = ImagePopUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +264,8 @@
 				FA36703525C317D20073314D /* AppDelegate.swift in Sources */,
 				FAD9E70525C5D2C9003A6538 /* Places.swift in Sources */,
 				FA36706225C320170073314D /* CustomButton.swift in Sources */,
-				FA36705A25C31E4F0073314D /* SearchViewController.swift in Sources */,
 				FA36703725C317D20073314D /* SceneDelegate.swift in Sources */,
 				FA6E6A1725C7CBA4009409F8 /* ImageViewController.swift in Sources */,
-				FA36705D25C31F830073314D /* ContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
