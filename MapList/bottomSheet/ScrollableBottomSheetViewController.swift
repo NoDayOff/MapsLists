@@ -197,8 +197,8 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         
         var names : String
         var dicData : DataModel?
-        cell.infoButton.tag = indexPath.row
-        cell.infoButton.addTarget(self, action: #selector(infoPressed(_:)), for: .touchUpInside)
+        //cell.infoButton.tag = indexPath.row
+      //  cell.infoButton.addTarget(self, action: #selector(infoPressed(_:)), for: .touchUpInside)
         if searchBar.text != "" {
             cell.contactName.text = filteredArray[indexPath.row].title
         }
